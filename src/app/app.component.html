@@ -4,4 +4,55 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<section id="assignment-1">
+  <div>
+    <h2>assignment 1.1</h2>
+    {{myProperty$ | async}}
+  </div>
+
+  <div>
+    <h2>assignment 1.2</h2>
+    {{myModifiedProperty$ | async}}
+  </div>
+</section>
+
+
+<section id="assignment-2">
+  <div>
+    <h2>assignment 2.1</h2>
+    {{mySideEffect$ | async}}
+  </div>
+
+  <div>
+    <h2>assignment 2.2</h2>
+    {{cold$ | async}}
+    {{cold$ | async}}
+    {{hot$ | async}}
+    {{hot$ | async}}
+  </div>
+
+  <div>
+    <h2>assignment 2.3</h2>
+    {{mySubject | async}}
+  </div>
+</section>
+
+<section id="assignment-3">
+  <div>
+    <h2>assignment 3.1</h2>
+    {{show$}}
+  </div>
+
+  <div>
+    <h2>assignment 3.2</h2>
+    {{shows$}}
+  </div>
+
+  <div>
+    <h2>assignment 3.3</h2>
+    {{castMembers$}}
+  </div>
+</section>
+
+
 <router-outlet></router-outlet>

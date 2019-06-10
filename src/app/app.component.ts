@@ -1,6 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {map, share, tap} from 'rxjs/operators';
-import {BehaviorSubject, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subscription} from 'rxjs';
+import {Show, ShowResponse} from './interfaces/show-reponse.interface';
+import {CastMemberResponse} from './interfaces/cast-member-response.interface';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
 	selector: 'app-root',
@@ -17,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy{
 	// assignment 2 solution
 	public readonly mySideEffect$ = of('my side effect').pipe(tap(console.log));
 	public readonly cold$ = of('its chilling out here').pipe(tap(console.log));
-	public readonly hot$ = of('summerTime').pipe(share(), tap(console.log));
+	public readonly hot$ = of('summerTime')
+		.pipe(share(), tap(console.log));
 	public readonly mySubject = new BehaviorSubject<string | undefined>(undefined);
 
 	// assignment 3 here
@@ -25,9 +29,10 @@ export class AppComponent implements OnInit, OnDestroy{
 	// public readonly showCastMembers$ = assignment 3.1 code here
 
 	public readonly shows$ = this.showsBySearch$('green');
-	// public readonly shows$CastMembers$ = assignment 3.2 code here
+	// public readonly showsCastMembers$ = assignment 3.2 code here
 
-	public readonly castMembers$ = this.castMembersForShow$(1).pipe(tap(val => console.log('logging assignment 3.3')));
+	public readonly castMembers$ = this.castMembersForShow$(1)
+		.pipe(tap(val => console.log('logging assignment 3.3')));
 
 	private readonly subscriptions = new Subscription();
 
