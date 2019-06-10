@@ -13,7 +13,8 @@ https://www.learnrxjs.io/operators/transformation/switchmap.html
 remember not to do any side effects and stay inside the reactive stream`
 
 HINTS: 
-- Nil
+`operator forkJoin`
+https://www.learnrxjs.io/operators/combination/forkjoin.html
 
 ### assignment 3: unicast vs multicast
 `when we use the same observable in our template twice we see that our producer is generated multiple times, 
