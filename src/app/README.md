@@ -10,7 +10,16 @@ HINTS:
 myObservable$.pipe(tap(console.log))
 ```
 
-### assignment 2: subjects === observable + observer
+### assignment 2: unicast vs multicast
+`when we resolve the same observable 3 times in our template we see that our producer is also generated multiple times (network tab on browser), 
+this is not ideal since we already have gotten the data necessary to populate our template.
+Use the share operator to make our unicast stream into a multicast one`
+
+HINTS: 
+`operator share`
+https://www.learnrxjs.io/operators/multicasting/share.html
+
+### assignment 3: subjects === observable + observer
 `the property mySubject initially does not contain a value, 
 lets fill it in the constructor of our component by calling the .next(value: any) method
 on it and see if out value is being printed on the page.`

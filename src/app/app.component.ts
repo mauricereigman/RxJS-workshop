@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {map, share, tap} from 'rxjs/operators';
-import {of, Subject} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Show} from './interfaces/show-response.interface';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +19,22 @@ export class AppComponent implements OnInit {
   );
 
   /*assignment 3 here*/
+  // 3.1 here
   public readonly mySideEffect$ = of('my side effect');
+
+  // 3.2 here
+  public readonly myShow = this.showById$(1);
+
+  // 3.3 here
   public readonly mySubject = new Subject();
 
-  constructor() {
+  constructor(private readonly http: HttpClient) {
   }
 
   public ngOnInit(): void {
+  }
+
+  private showById$(id: number): Observable<Show> {
+    return this.http.get<Show>(`http://api.tvmaze.com/shows/${id}`);
   }
 }
