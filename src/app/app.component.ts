@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {of, Subject} from 'rxjs';
 
@@ -7,7 +7,7 @@ import {of, Subject} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'RxJS-workshop';
 
   // assignment 2 solution
