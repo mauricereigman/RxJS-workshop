@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   public readonly mySideEffect$ = of('my side effect');
 
   // 3.2 here
-  public readonly myShow = this.showById$(1);
+  public readonly myShow$ = this.showById$(1);
 
   // 3.3 here
   public readonly mySubject = new Subject();
