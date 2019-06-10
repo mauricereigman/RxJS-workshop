@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {map} from 'rxjs/operators';
+import {map, share, tap} from 'rxjs/operators';
 import {of, Subject} from 'rxjs';
 
 @Component({
@@ -18,8 +18,6 @@ export class AppComponent implements OnInit {
 
   /*assignment 3 here*/
   public readonly mySideEffect$ = of('my side effect');
-  public readonly cold$ = of('its chilling out here');
-  public readonly hot$ = of('summerTime');
   public readonly mySubject = new Subject();
 
   constructor() {
