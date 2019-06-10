@@ -16,16 +16,7 @@ HINTS:
 `operator forkJoin`
 https://www.learnrxjs.io/operators/combination/forkjoin.html
 
-### assignment 3: unicast vs multicast
-`when we use the same observable in our template twice we see that our producer is generated multiple times, 
-this is not ideal since we already have gotten the data necessary to populate out template.
-Use the share operator to make our unicast stream into a multicast one`
-
-HINTS: 
-`operator switchMap`
-https://www.learnrxjs.io/operators/multicasting/share.html
-
-### assignment 4: subscribing
+### assignment 3: subscribing
 `In some use cases we do not have a clear end to our observable stream which the framework we use can handle for us. 
 In these special cases we want to manually 
 subscribe and unsubscribe to our observables (though this should be avoided as much as possible)
