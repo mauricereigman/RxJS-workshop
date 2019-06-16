@@ -17,7 +17,7 @@ HINTS:
 `Create another property and call it modifiedProperty$
 make a reference to the previously created myProperty$ and start a pipeline with a map function in which you
 modify the contained value using a pure mapping arrow function
-print this value on the template as wel`
+print this value on the template`
 
 HINTS: 
 - adding a pipeline to an observable
