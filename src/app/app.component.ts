@@ -8,7 +8,7 @@ import {of, Subject} from 'rxjs';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'RxJS-workshop';
+	public readonly title = 'ReactiveX workshop';
 
 	// assignment 1 here
 	constructor() {
