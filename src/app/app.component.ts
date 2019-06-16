@@ -10,7 +10,7 @@ import {Show} from './interfaces/show-response.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'RxJS-workshop';
+  public readonly title = 'ReactiveX workshop';
 
   /*assignment 2 solution*/
   public readonly myProperty$ = of('hello observable');
