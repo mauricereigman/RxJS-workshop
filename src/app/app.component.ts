@@ -11,6 +11,8 @@ import {HttpClient} from '@angular/common/http';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy{
+	public readonly title = 'ReactiveX workshop';
+	
 	/*assignment 2 solution*/
 	public readonly myProperty$ = of('hello observable');
 	public readonly myModifiedProperty$ = this.myProperty$.pipe(
