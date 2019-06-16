@@ -1,6 +1,6 @@
 #practical observable operators
 
-### assignment 1: finding cast members from show$
+### assignment 1: finding cast members for show$
 `the property show$ contains a show. Use this show to get all the castMembers of it using the castMembersForShow$() method and print them on the template
 remember not to do any side effects and stay inside the reactive stream`
 
