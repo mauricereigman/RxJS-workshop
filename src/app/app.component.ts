@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {map, share, tap} from 'rxjs/operators';
-import {BehaviorSubject, Observable, of, Subscription} from 'rxjs';
+import {map, share, switchMap, tap} from 'rxjs/operators';
+import {BehaviorSubject, forkJoin, Observable, of, Subscription} from 'rxjs';
 import {Show, ShowResponse} from './interfaces/show-reponse.interface';
 import {CastMemberResponse} from './interfaces/cast-member-response.interface';
 import {HttpClient} from '@angular/common/http';
@@ -10,7 +10,9 @@ import {HttpClient} from '@angular/common/http';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
+	public readonly title = 'ReactiveX workshop';
+
 	/*assignment 2 solution*/
 	public readonly myProperty$ = of('hello observable');
 	public readonly myModifiedProperty$ = this.myProperty$.pipe(
@@ -24,10 +26,13 @@ export class AppComponent implements OnInit, OnDestroy{
 
 	/*assignment 4 here*/
 	public readonly show$ = this.showById$(1);
-	// public readonly showCastMembers$ = assignment 4.1 code here
+	public readonly showCastMembers$ = this.show$.pipe(switchMap(show => this.castMembersForShow$(show.id)));
 
 	public readonly shows$ = this.showsBySearch$('green');
-	// public readonly showsCastMembers$ = assignment 4.2 code here
+	public readonly showsCastMembers$ = this.shows$.pipe(
+		map(shows => shows.map(showResponse => this.castMembersForShow$(showResponse.show.id))),
+		switchMap(results$ => forkJoin(results$)),
+	);
 
 	public readonly castMembers$ = this.castMembersForShow$(1)
 		.pipe(tap(val => console.log('logging assignment 4.3')));
