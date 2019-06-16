@@ -1,0 +1,6 @@
+#case-1-search-results {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}

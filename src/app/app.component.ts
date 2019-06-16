@@ -1,30 +1,27 @@
-import {Component, OnInit} from '@angular/core';
-import {map} from 'rxjs/operators';
-import {of, Subject} from 'rxjs';
+import {Component} from '@angular/core';
+import {Observable, of} from 'rxjs';
+import {FormControl} from '@angular/forms';
+import {Show, ShowResponse} from './interfaces/show-response';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'RxJS-workshop';
+export class AppComponent {
+	public readonly title = 'RxJS-workshop';
+	public readonly control = new FormControl();
+	public readonly searchResults$: Observable<Show[]> = of([]);
 
-  /*assignment 2 solution*/
-  public readonly myProperty$ = of('hello observable');
-  public readonly myModifiedProperty$ = this.myProperty$.pipe(
-      map(myProperty => `modified! ${myProperty}`)
-  );
+	constructor(private readonly http: HttpClient) {
+	}
 
-  /*assignment 3 here*/
-  public readonly mySideEffect$ = of('my side effect');
-  public readonly cold$ = of('its chilling out here');
-  public readonly hot$ = of('summerTime');
-  public readonly mySubject = new Subject();
+	private showById$(id: number): Observable<Show> {
+		return this.http.get<Show>(`http://api.tvmaze.com/shows/${id}`);
+	}
 
-  constructor() {
-  }
-
-  public ngOnInit(): void {
-  }
+	private showsBySearch$(query: string): Observable<ShowResponse[]> {
+		return this.http.get<ShowResponse[]>(`http://api.tvmaze.com/search/shows?q=${query}`);
+	}
 }

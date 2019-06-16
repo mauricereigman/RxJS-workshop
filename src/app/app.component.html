@@ -1,39 +1,24 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <h1>Welcome to {{ title }}!</h1>
-  </mat-toolbar-row>
+    <mat-toolbar-row>
+        <h1>Welcome to {{ title }}!</h1>
+    </mat-toolbar-row>
 </mat-toolbar>
 
-<section id="assignment-1">
-  <div>
-    <h2>assignment 1.1</h2>
-    {{myProperty$ | async}}
-  </div>
-
-  <div>
-    <h2>assignment 1.2</h2>
-    {{myModifiedProperty$ | async}}
-  </div>
+<section id="case-1">
+    <input [formControl]="control">
 </section>
-
-<section id="assignment-2">
-  <div>
-    <h2>assignment 3.1</h2>
-    {{mySideEffect$ | async}}
-  </div>
-
-  <div>
-    <h2>assignment 3.2</h2>
-    {{cold$ | async}}
-    {{cold$ | async}}
-    {{hot$ | async}}
-    {{hot$ | async}}
-  </div>
-
-  <div>
-    <h2>assignment 3.3</h2>
-    {{mySubject | async}}
-  </div>
+<section id="case-1-search-results">
+    <mat-card class="example-card" *ngFor="let show of searchResults$ | async">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{show?.name}}</mat-card-title>
+            <mat-card-subtitle>{{show.network?.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image *ngIf="show.image" [src]="show.image?.original" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            {{show.summary}}
+        </mat-card-content>
+    </mat-card>
 </section>
 
 <router-outlet></router-outlet>
