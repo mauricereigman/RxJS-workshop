@@ -1,7 +1,7 @@
 #practical observable operators
 
 ### assignment 1: finding cast members for show$
-`the property show$ contains a show. Use this show to get all the castMembers of it using the castMembersForShow$() method and print them on the template
+`the Observable property show$ contains a show. Use this show to get all the castMembers of it using the castMembersForShow$(id: number) method and print them on the template
 remember not to do any side effects and stay inside the reactive stream`
 
 HINTS: 
@@ -9,7 +9,7 @@ HINTS:
 https://www.learnrxjs.io/operators/transformation/switchmap.html
 
 ### assignment 2: finding cast members for multiple shows$
-`the property shows$ contains multiple shows. Use these shows to get all the castMembers of them using the castMembersForShow$() method and print them on the template
+`the property shows$ contains multiple shows. Use these shows to get all the castMembers of them using the castMembersForShow$(id: number) method and print them on the template
 remember not to do any side effects and stay inside the reactive stream`
 
 HINTS: 
