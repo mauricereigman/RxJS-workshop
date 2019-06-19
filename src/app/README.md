@@ -1,5 +1,5 @@
 ### assignment 1: some basic angular binding
-`Add a property (called myProperty) in this class (can be any primitive type)
+`Add a property (called myProperty) in the app.component.ts class (can be any primitive type)
 and print it on the components corresponding template referenced in the decorator at the top of this class`
 HINTS: 
 - binding property in template {{myProperty}}
