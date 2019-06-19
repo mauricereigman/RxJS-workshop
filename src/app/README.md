@@ -20,9 +20,9 @@ HINTS:
 https://www.learnrxjs.io/operators/multicasting/share.html
 
 ### assignment 3: subjects === observable + observer
-`initially the property mySubject does not contain a value, 
+`initially the property mySubject (which is a type of observable) does not contain a value, 
 lets fill it in the constructor of our component by calling the .next(value: any) method
-on it and see if out value is being printed on the page.`
+on it and see if our value is being printed on the page.`
 
 `a Subject is a hot observable and because the constructor initiation is done 
 before the component starts rendering we missed the event.
